@@ -1,13 +1,42 @@
 import React from 'react';
 import { Container, Header, Title, Content, Body, Text, Icon } from 'native-base';
 import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
+import AddToDoButton from '../components/AddToDoButton'
+import AddToDo from '../components/AddToDo';
 
 class AllToDo extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      new_todo: false,
+    }
+  }
+
+  saveToDoData = (todo) => {
+    this.addNewToDo(show = false);
+    console.log(`Todo is ${todo.title} ${todo.completed ? "completed!" : "not completed!"}`);
+  }
+  addNewToDo = (show) => {
+    this.setState({
+      new_todo: show
+    });
+  }
+
   render() {
+    const { new_todo } = this.state;
     return (
       <Container>
         <Header><Body><Title>All</Title></Body></Header>
-        <Content><Text>All Section</Text></Content>
+        <Content>
+          {new_todo &&
+            <AddToDo
+              onPress = { this.saveToDoData }
+              onCancel = { this.addNewToDo }
+            />
+          }
+        </Content>
+        <AddToDoButton onAddNewToDo = { this.addNewToDo } />
       </Container>
     );
   }

@@ -1,6 +1,9 @@
 import React from 'react';
-import TabNavigator from './MainTabNavigator';
 import { Font, AppLoading } from 'expo'; // requirement for using native-base in expo
+import { Provider } from 'react-redux';
+
+import store from '../store/create_store';
+import TabNavigator from './MainTabNavigator';
 
 export default class RootComponent extends React.Component {
   constructor(props) {
@@ -26,7 +29,9 @@ export default class RootComponent extends React.Component {
       );
     }else{
       return (
+        <Provider store = { store }>
           <TabNavigator />
+        </Provider>
       );
     }
   }

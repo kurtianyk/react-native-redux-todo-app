@@ -1,6 +1,6 @@
 import React from 'react';
 import RootComponent from './navigation/RootComponent';
 
-const App = () => <RootComponent style={{marginTop: '20px'}} />;
+const App = () => <RootComponent />;
 
 export default App;
