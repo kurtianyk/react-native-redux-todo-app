@@ -16,7 +16,7 @@ export default class ToDoItem extends React.Component {
           }) }
         />
         <Body>
-          <Text>{ todo.title }</Text>
+          <Text style = {{textDecorationLine: todo.completed ? 'line-through' : 'none' }} >{ todo.title }</Text>
         </Body>
         <Button
           transparent
