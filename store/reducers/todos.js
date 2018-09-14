@@ -29,7 +29,7 @@ export default function todoReducer(state = initialState, action) {
       }
     case DELETE_TODO:
       return {
-        todos: state.todos.filter(() => {
+        todos: state.todos.filter((todo) => {
           return todo.title != action.todo.title;
         })
       }

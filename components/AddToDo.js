@@ -3,7 +3,6 @@ import { Body, Icon, CheckBox, ListItem } from 'native-base';
 import { Input, Button } from 'native-base';
 
 export default class AddToDo extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
